@@ -37,8 +37,8 @@ class App extends Component {
   };
 
   editProj = (id, datePainted, img) => {
-    axios.put(`/api/team/${id}`, { datePainted, img })
-      .then(res => this.setState({ kits: res.data }))
+    axios.put(`/api/watercolor/${id}`, { datePainted, img })
+      .then(res => this.setState({ finishedKits: res.data }))
       .catch(err => console.log(err))
   };
 

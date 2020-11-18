@@ -39,7 +39,8 @@ module.exports = {
         res.status(200).send({kits: kits, completedProjects: completedProjects});
     },
     editProj: (req, res) => {
-        const { id, datePainted, img } = req.body
+        const { id } = req.params
+        const { datePainted, img } = req.body
         const projectIndex = completedProjects.findIndex(project => project.id === +id)
         
         completedProjects[projectIndex].datePainted = datePainted
