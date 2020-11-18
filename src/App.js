@@ -30,14 +30,14 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  deleteProj = index => {
-    axios.delete(`/api/watercolor/${index}`)
+  deleteProj = id => {
+    axios.delete(`/api/watercolor/${id}`)
       .then(res => this.setState({ kits: res.data }))
       .catch(err => console.log(err));
   };
 
-  editProj = (index, datePainted) => {
-    axios.put(`/api/team/${index}`, { datePainted })
+  editProj = (id, datePainted, img) => {
+    axios.put(`/api/team/${id}`, { datePainted, img })
       .then(res => this.setState({ kits: res.data }))
       .catch(err => console.log(err))
   };
@@ -51,7 +51,7 @@ class App extends Component {
           <AvailKits
           finishedKits={this.state.finishedKits}
           deleteProj={this.deleteProj}
-          datePainted={this.datePainted}
+          editProj={this.editProj}
           />
         </main>
       </div>

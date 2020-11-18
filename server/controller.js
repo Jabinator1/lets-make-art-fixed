@@ -39,12 +39,13 @@ module.exports = {
         res.status(200).send({kits: kits, completedProjects: completedProjects});
     },
     editProj: (req, res) => {
-        const { index } = req.params;
-        const { datePainted } = req.body;
-
-        kits[index].datePainted = datePainted;
+        const { id, datePainted, img } = req.body
+        const projectIndex = completedProjects.findIndex(project => project.id === +id)
         
-        res.status(200).send(kits);
+        completedProjects[projectIndex].datePainted = datePainted
+        completedProjects[projectIndex].img = img
+        
+        res.status(200).send(completedProjects);
     },    
 
 };

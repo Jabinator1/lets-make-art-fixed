@@ -9,7 +9,6 @@ const AvailKits = (props) => {
             watercolor={watercolor}
             deleteProj={props.deleteProj}
             editProj={props.editProj}
-            index={index}
         />
     ));
     return <ul> {kitsArray} </ul>;
